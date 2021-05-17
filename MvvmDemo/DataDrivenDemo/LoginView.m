@@ -7,6 +7,9 @@
 
 #import "LoginView.h"
 
+#define WS __weak typeof(self) weakSelf = self;
+#define SS __strong typeof(weakSelf) self = weakSelf;
+
 @interface LoginView ()
 
 @property(strong, nonatomic) UILabel *usernameLabel;
@@ -22,7 +25,12 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     if(self = [super initWithFrame:frame]){
         [self doLayout];
-        [self doBindings];
+        
+        [self addTargetActions];
+        
+        [self makeDataDrivenRefreshing];
+        
+        [self makeActionsEmittings];
     }
     return self;
 }
@@ -38,13 +46,51 @@
     [self addSubview:self.passwordLabel];
 }
 
--(void)doBindings{
-    self.usernameDidChange = Observable.create(nil);
-    self.passwordDidChange = Observable.create(nil);
-    self.loginButtonTouched = Observable.create(nil);
+-(void)addTargetActions{
     [self.loginButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
     [self.usernameTextField addTarget:self action:@selector(usernameChanged) forControlEvents:UIControlEventEditingChanged];
     [self.passwordTextField addTarget:self action:@selector(passwordChanged) forControlEvents:UIControlEventEditingChanged];
+}
+
+-(void)makeDataDrivenRefreshing{
+    WS
+    self.username = Observer.create().handle(^(id  _Nonnull newValue) {
+        SS
+        self.usernameTextField.text = newValue;
+    });
+    
+    self.password = Observer.create().handle(^(id  _Nonnull newValue) {
+        SS
+        self.passwordTextField.text = newValue;
+    });
+    
+    self.instruction = Observer.create().handle(^(id  _Nonnull newValue) {
+        SS
+        self.instructionLabel.text = newValue;
+    });
+    
+    self.usernameValid = Observer.create().handle(^(id  _Nonnull newValue) {
+        SS
+        self.usernameTextField.backgroundColor = [newValue boolValue] ? [UIColor whiteColor] : LightRed;
+    });
+    
+    self.passwordValid = Observer.create().handle(^(id  _Nonnull newValue) {
+        SS
+        self.passwordTextField.backgroundColor = [newValue boolValue] ? [UIColor whiteColor] : LightRed;
+    });
+    
+    self.loginEnabled = Observer.create().handle(^(id  _Nonnull newValue) {
+        SS
+        self.loginButton.enabled = [newValue boolValue];
+        self.loginButton.backgroundColor = [newValue boolValue] ? ThemeColor : LightGray;
+        [self.loginButton setTitleColor:[newValue boolValue] ? [UIColor whiteColor] : [UIColor darkGrayColor] forState:UIControlStateNormal];
+    });
+}
+
+-(void)makeActionsEmittings{
+    self.usernameDidChange = Observable.create(nil);
+    self.passwordDidChange = Observable.create(nil);
+    self.loginButtonTouched = Observable.create(nil);
 }
 
 //MARK: Actions

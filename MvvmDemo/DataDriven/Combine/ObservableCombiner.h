@@ -29,7 +29,10 @@ typedef _Nullable id (^CombinerHandler)(NSArray *newValues);
 @property(copy, nonatomic, readonly, class) id _Nullable (^safeValue)(NSArray *, NSInteger);
 
 /// 构建
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wincompatible-property-type"
 @property(copy, nonatomic, readonly, class) ObservableCombiner *(^create)(CombineStrategy strategy);
+#pragma clang diagnostic pop
 
 /// 合并可观察对象
 @property(copy, nonatomic, readonly) ObservableCombiner * (^combine)(id<Observable> observable);

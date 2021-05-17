@@ -37,7 +37,6 @@ static Observable *(^create)(id) = ^Observable *(id defaultValue){
     return create;
 }
 
-
 -(void)addObserver:(id<Observer>)observer{
     [self.observers addObject:observer];
 }

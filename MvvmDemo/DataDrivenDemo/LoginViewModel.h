@@ -9,9 +9,6 @@
 #import "ObservableCombiner.h"
 #import "Observer.h"
 
-#define WS __weak typeof(self) weakSelf = self;
-#define SS __strong typeof(weakSelf) self = weakSelf;
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LoginViewModel : NSObject
@@ -21,11 +18,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(strong, nonatomic) Observable *password;
 
-@property(strong, nonatomic) Observable *instruction;
-
 @property(strong, nonatomic) ObservableCombiner *usernameValid;
 
 @property(strong, nonatomic) ObservableCombiner *passwordValid;
+
+@property(strong, nonatomic) ObservableCombiner *instruction;
 
 @property(strong, nonatomic) ObservableCombiner *loginEnabled;
 

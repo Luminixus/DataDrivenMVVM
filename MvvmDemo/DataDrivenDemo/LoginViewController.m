@@ -37,38 +37,17 @@
 
 /// 数据驱动UI刷新
 -(void)doDataBindings{
-    WS
-    Observer.create().handle(^(id  _Nonnull newValue) {
-        SS
-        self.loginView.usernameTextField.text = newValue;
-    }).subscribe(self.loginViewModel.username);
+    self.loginView.username.subscribe(self.loginViewModel.username);
     
-    Observer.create().handle(^(id  _Nonnull newValue) {
-        SS
-        self.loginView.passwordTextField.text = newValue;
-    }).subscribe(self.loginViewModel.password);
+    self.loginView.password.subscribe(self.loginViewModel.password);
     
-    Observer.create().handle(^(id  _Nonnull newValue) {
-        SS
-        self.loginView.instructionLabel.text = newValue;
-    }).subscribe(self.loginViewModel.instruction);
+    self.loginView.instruction.subscribe(self.loginViewModel.instruction);
     
-    Observer.create().handle(^(id  _Nonnull newValue) {
-        SS
-        self.loginView.usernameTextField.backgroundColor = [newValue boolValue] ? [UIColor whiteColor] : LightRed;
-    }).subscribe(self.loginViewModel.usernameValid);
+    self.loginView.usernameValid.subscribe(self.loginViewModel.usernameValid);
     
-    Observer.create().handle(^(id  _Nonnull newValue) {
-        SS
-        self.loginView.passwordTextField.backgroundColor = [newValue boolValue] ? [UIColor whiteColor] : LightRed;
-    }).subscribe(self.loginViewModel.passwordValid);
+    self.loginView.passwordValid.subscribe(self.loginViewModel.passwordValid);
     
-    Observer.create().handle(^(id  _Nonnull newValue) {
-        SS
-        self.loginView.loginButton.enabled = [newValue boolValue];
-        self.loginView.loginButton.backgroundColor = [newValue boolValue] ? ThemeColor : LightGray;
-        [self.loginView.loginButton setTitleColor:[newValue boolValue] ? [UIColor whiteColor] : [UIColor darkGrayColor] forState:UIControlStateNormal];
-    }).subscribe(self.loginViewModel.loginEnabled);
+    self.loginView.loginEnabled.subscribe(self.loginViewModel.loginEnabled);
 }
 
 /// 用户交互动作订阅
