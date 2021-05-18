@@ -17,8 +17,9 @@
 		1F6D416625FDFC9600DF94F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F6D416525FDFC9600DF94F5 /* Assets.xcassets */; };
 		1F6D416925FDFC9600DF94F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6D416725FDFC9600DF94F5 /* LaunchScreen.storyboard */; };
 		1F6D416C25FDFC9600DF94F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D416B25FDFC9600DF94F5 /* main.m */; };
-		1F6D417625FDFC9600DF94F5 /* MvvmDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D417525FDFC9600DF94F5 /* MvvmDemoTests.m */; };
 		1F6D418125FDFC9600DF94F5 /* MvvmDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6D418025FDFC9600DF94F5 /* MvvmDemoUITests.m */; };
+		4AB106BD2653AD34000CD066 /* LoginViewModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB106BC2653AD34000CD066 /* LoginViewModelTests.m */; };
+		4AB106D12653B347000CD066 /* LoginViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AB106D02653B347000CD066 /* LoginViewTests.m */; };
 		4ABF0F712618D1AD00FDF70C /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF0F702618D1AD00FDF70C /* LoginViewModel.m */; };
 		4ABF0F7B2618D2F200FDF70C /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF0F7A2618D2F200FDF70C /* LoginView.m */; };
 		4ABF0F842618D53800FDF70C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ABF0F832618D53800FDF70C /* LoginViewController.m */; };
@@ -64,11 +65,12 @@
 		1F6D416A25FDFC9600DF94F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F6D416B25FDFC9600DF94F5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F6D417125FDFC9600DF94F5 /* MvvmDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MvvmDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F6D417525FDFC9600DF94F5 /* MvvmDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MvvmDemoTests.m; sourceTree = "<group>"; };
 		1F6D417725FDFC9600DF94F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F6D417C25FDFC9600DF94F5 /* MvvmDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MvvmDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6D418025FDFC9600DF94F5 /* MvvmDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MvvmDemoUITests.m; sourceTree = "<group>"; };
 		1F6D418225FDFC9600DF94F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4AB106BC2653AD34000CD066 /* LoginViewModelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModelTests.m; sourceTree = "<group>"; };
+		4AB106D02653B347000CD066 /* LoginViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewTests.m; sourceTree = "<group>"; };
 		4ABF0F6F2618D1AD00FDF70C /* LoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
 		4ABF0F702618D1AD00FDF70C /* LoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
 		4ABF0F792618D2F200FDF70C /* LoginView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
@@ -180,7 +182,7 @@
 		1F6D417425FDFC9600DF94F5 /* MvvmDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				1F6D417525FDFC9600DF94F5 /* MvvmDemoTests.m */,
+				4AB106B82653ACF1000CD066 /* DataDrivenDemoTests */,
 				1F6D417725FDFC9600DF94F5 /* Info.plist */,
 			);
 			path = MvvmDemoTests;
@@ -193,6 +195,15 @@
 				1F6D418225FDFC9600DF94F5 /* Info.plist */,
 			);
 			path = MvvmDemoUITests;
+			sourceTree = "<group>";
+		};
+		4AB106B82653ACF1000CD066 /* DataDrivenDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				4AB106BC2653AD34000CD066 /* LoginViewModelTests.m */,
+				4AB106D02653B347000CD066 /* LoginViewTests.m */,
+			);
+			path = DataDrivenDemoTests;
 			sourceTree = "<group>";
 		};
 		4ABF0F6E2618D18000FDF70C /* DataDrivenDemo */ = {
@@ -377,7 +388,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F6D417625FDFC9600DF94F5 /* MvvmDemoTests.m in Sources */,
+				4AB106D12653B347000CD066 /* LoginViewTests.m in Sources */,
+				4AB106BD2653AD34000CD066 /* LoginViewModelTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +589,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/MvvmDemo/DataDrivenDemo/**",
+					"$(SRCROOT)/MvvmDemo/DataDriven/**",
+				);
 				INFOPLIST_FILE = MvvmDemoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -596,6 +612,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/MvvmDemo/DataDrivenDemo/**",
+					"$(SRCROOT)/MvvmDemo/DataDriven/**",
+				);
 				INFOPLIST_FILE = MvvmDemoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
 				LD_RUNPATH_SEARCH_PATHS = (
